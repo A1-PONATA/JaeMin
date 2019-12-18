@@ -58,7 +58,7 @@ class VideoFrameGenerator(Sequence):
             transformation: ImageDataGenerator = None,
             split: float = None,
             nb_channel: int = 3,
-            glob_pattern: str = './videos/{classname}/*.avi',
+            glob_pattern: str = '/home/pirl/Downloads/song1/select3/{classname}/*.avi',
             _validation_data: list = None):
 
         # should be only RGB or Grayscale
@@ -99,6 +99,7 @@ class VideoFrameGenerator(Sequence):
             if split is not None and split > 0.0:
                 for cls in classes:
                     files = glob.glob(glob_pattern.format(classname=cls))
+                    print(files)
                     nbval = int(split * len(files))
 
                     print("class %s, validation count: %d" % (cls, nbval))
